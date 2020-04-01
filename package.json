@@ -5,7 +5,7 @@
   "description": "Учебный проект «Угадай мелодию» от HTML Academy",
   "scripts": {
     "eslint": "eslint --ext .jsx --ext .js src/",
-    "test": "npm run eslint",
+    "test": "npm run eslint && jest",
     "build": "webpack --mode production",
     "start": "webpack-dev-server"
   },
@@ -29,6 +29,8 @@
     "babel-jest": "25.2.4",
     "babel-loader": "8.1.0",
     "cross-env": "^7.0.2",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-babel": "^5.3.0",
