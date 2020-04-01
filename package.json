@@ -1,0 +1,51 @@
+{
+  "name": "guess-melody",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Учебный проект «Угадай мелодию» от HTML Academy",
+  "scripts": {
+    "eslint": "eslint --ext .jsx --ext .js src/",
+    "test": "npm run eslint",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lev93/guess-melody.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lev93/guess-melody/issues"
+  },
+  "homepage": "https://github.com/Lev93/guess-melody#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "7.9.0",
+    "@babel/preset-react": "7.9.4",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "25.2.4",
+    "babel-loader": "8.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "25.2.4",
+    "react-test-renderer": "16.13.1",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
