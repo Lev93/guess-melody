@@ -12,7 +12,7 @@ it('App is correctly rendered after relaunch', () => {
   const welcomeScreen = shallow(<WelcomeScreen
     time={0}
     errorsCount={0}
-    onClick={clickHandler}
+    onStartButtonClick={clickHandler}
     />);
   const startButton = welcomeScreen.find('button');
   startButton.simulate('click');
