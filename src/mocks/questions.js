@@ -4,40 +4,40 @@ export default [
     genre: 'rock',
     answers: [
       {
-        src: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg',
+        src: 'music/linkin_park-numb.mp3',
         genre: 'rock',
       },
       {
-        src: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg',
+        src: 'music/madona-LaIslaBonita.mp3',
         genre: 'pop',
       },
       {
-        src: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg',
+        src: 'music/louis_armstrong-whatawonderfulworld.mp3',
         genre: 'jazz',
       },
       {
-        src: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg',
-        genre: 'rock',
+        src: 'music/50_Cent-Candy_Shop.mp3',
+        genre: 'rap',
       },
     ],
   }, {
     type: 'artist',
     song: {
-      artist: 'Jim Beam',
-      src: 'path.mp3',
+      artist: '50 cent',
+      src: 'music/50_Cent-Candy_Shop.mp3',
     },
     answers: [
       {
-        picture: 'path.jpg',
-        artist: 'John Snow',
+        picture: 'music/Linkin park.jpg',
+        artist: 'Linkin Park',
       },
       {
-        picture: 'path.jpg',
-        artist: 'Jack Daniels',
+        picture: 'music/50-cent.jpg',
+        artist: '50 cent',
       },
       {
-        picture: 'path.jpg',
-        artist: 'Jim Beam',
+        picture: 'music/Madonna.jpg',
+        artist: 'Madonna',
       },
     ],
   },

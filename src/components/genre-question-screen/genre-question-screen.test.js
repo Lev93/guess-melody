@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import GenreQuestionScreen from './genre-question-screen.jsx';
@@ -31,7 +32,11 @@ describe('GenreQuestionScreen is rendered correctly', () => {
   it('GenreQuestionScreen renders correctly', () => {
     const { question } = mock;
     const tree = renderer.create(
-        <GenreQuestionScreen onAnser={jest.fn()} question={question}/>,
+        <GenreQuestionScreen onAnser={jest.fn()} question={question}/>, {
+          createNodeMock: () => {
+            return {};
+          },
+        },
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

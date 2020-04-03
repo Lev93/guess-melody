@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ArtistQuestionScreen from './artist-question-screen.jsx';
@@ -30,7 +31,11 @@ describe('ArtistQuestionScreen is rendered correctly', () => {
   it('ArtistQuestionScreen renders correctly', () => {
     const { question } = mock;
     const tree = renderer.create(
-        <ArtistQuestionScreen onAnser={jest.fn()} question={question}/>,
+        <ArtistQuestionScreen onAnser={jest.fn()} question={question}/>, {
+          createNodeMock: () => {
+            return {};
+          },
+        },
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

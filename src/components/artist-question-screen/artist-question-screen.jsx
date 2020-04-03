@@ -1,15 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AudioPlayer from '../audio-player/audio-player.jsx';
 
 
-const ArtistQuestionScreen = ({ question, onAnswer }) => {
-  const { answers } = question;
+class ArtistQuestionScreen extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
-    onAnswer();
-  };
-  return <section className="game game--artist">
+    this.state = {
+      isPlaying: false,
+    };
+  }
+
+  render() {
+    const { question, onAnswer } = this.props;
+    const { isPlaying } = this.state;
+    const { answers, song } = question;
+
+    const handleSubmitForm = (e) => {
+      e.preventDefault();
+      onAnswer();
+    };
+
+    return <section className="game game--artist">
   <header className="game__header">
     <a className="game__back" href="#">
       <span className="visually-hidden">Сыграть ещё раз</span>
@@ -33,10 +46,11 @@ const ArtistQuestionScreen = ({ question, onAnswer }) => {
     <h2 className="game__title">Кто исполняет эту песню?</h2>
     <div className="game__track">
       <div className="track">
-        <button className="track__button track__button--play" type="button"></button>
-        <div className="track__status">
-          <audio></audio>
-        </div>
+      <AudioPlayer
+          isPlaying={isPlaying}
+          onPlayButtonClick={() => this.setState({ isPlaying: !isPlaying })}
+          src={song.src}
+        />
       </div>
     </div>
 
@@ -51,7 +65,8 @@ const ArtistQuestionScreen = ({ question, onAnswer }) => {
     </form>
   </section>
 </section>;
-};
+  }
+}
 
 ArtistQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,

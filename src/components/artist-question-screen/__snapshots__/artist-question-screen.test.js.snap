@@ -72,6 +72,8 @@ exports[`ArtistQuestionScreen is rendered correctly ArtistQuestionScreen renders
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div

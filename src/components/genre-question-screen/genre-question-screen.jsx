@@ -1,16 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AudioPlayer from '../audio-player/audio-player.jsx';
 
 
-const GenreQuestionScreen = ({ question, onAnswer }) => {
-  const { answers, genre } = question;
+class GenreQuestionScreen extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
-    onAnswer();
-  };
+    this.state = {
+      activePlayer: -1,
+    };
+  }
 
-  return <section className="game game--genre">
+  render() {
+    const { question, onAnswer } = this.props;
+    const { answers, genre } = question;
+
+    const handleSubmitForm = (e) => {
+      e.preventDefault();
+      onAnswer();
+    };
+
+    return <section className="game game--genre">
   <header className="game__header">
     <a className="game__back" href="#">
       <span className="visually-hidden">Сыграть ещё раз</span>
@@ -34,10 +45,13 @@ const GenreQuestionScreen = ({ question, onAnswer }) => {
 <h2 className="game__title">Выберите треки с жанром {genre}</h2>
     <form className="game__tracks" onSubmit = { handleSubmitForm }>
       {answers.map((it, i) => <div key = {`answer-${i}`} className="track">
-          <button className="track__button track__button--play" type="button"></button>
-          <div className="track__status">
-            <audio></audio>
-          </div>
+          <AudioPlayer
+            src={it.src}
+            isPlaying = {i === this.state.activePlayer}
+            onPlayButtonClick={() => this.setState({
+              activePlayer: this.state.activePlayer === i ? -1 : i,
+            })}
+          />
           <div className="game__answer">
             <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`} id={`answer-${i}`} />
             <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
@@ -48,7 +62,8 @@ const GenreQuestionScreen = ({ question, onAnswer }) => {
     </form>
   </section>
 </section>;
-};
+  }
+}
 
 
 GenreQuestionScreen.propTypes = {
