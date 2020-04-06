@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GenreQuestionScreen is rendered correctly GenreQuestionScreen renders correctly 1`] = `
+exports[`GenreQuestionScreen is rendered correctly 1`] = `
 <section
   className="game game--genre"
 >
@@ -90,6 +90,7 @@ exports[`GenreQuestionScreen is rendered correctly GenreQuestionScreen renders c
             className="game__input visually-hidden"
             id="answer-0"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
             value="answer-0"
           />
@@ -122,6 +123,7 @@ exports[`GenreQuestionScreen is rendered correctly GenreQuestionScreen renders c
             className="game__input visually-hidden"
             id="answer-1"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
             value="answer-1"
           />
@@ -154,6 +156,7 @@ exports[`GenreQuestionScreen is rendered correctly GenreQuestionScreen renders c
             className="game__input visually-hidden"
             id="answer-2"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
             value="answer-2"
           />
@@ -186,6 +189,7 @@ exports[`GenreQuestionScreen is rendered correctly GenreQuestionScreen renders c
             className="game__input visually-hidden"
             id="answer-3"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
             value="answer-3"
           />

@@ -1,57 +1,334 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders correctly 1`] = `
+exports[`App correctly renders artist question screen 1`] = `
 <section
-  className="welcome"
+  className="game game--artist"
 >
-  <div
-    className="welcome__logo"
+  <header
+    className="game__header"
   >
-    <img
-      alt="Угадай мелодию"
-      height="83"
-      src="img/melody-logo.png"
-      width="186"
-    />
-  </div>
-  <button
-    className="welcome__button"
-    onClick={[Function]}
-  >
-    <span
-      className="visually-hidden"
+    <a
+      className="game__back"
+      href="#"
     >
-      Начать игру
-    </span>
-  </button>
-  <h2
-    className="welcome__rules-title"
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <div
+      className="timer__value"
+    >
+      <span
+        className="timer__mins"
+      >
+        05
+      </span>
+      <span
+        className="timer__dots"
+      >
+        :
+      </span>
+      <span
+        className="timer__secs"
+      >
+        00
+      </span>
+    </div>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
+  <section
+    className="welcome"
   >
-    Правила игры
-  </h2>
-  <p
-    className="welcome__text"
+    <div
+      className="welcome__logo"
+    >
+      <img
+        alt="Угадай мелодию"
+        height="83"
+        src="img/melody-logo.png"
+        width="186"
+      />
+    </div>
+    <button
+      className="welcome__button"
+      onClick={[Function]}
+    >
+      <span
+        className="visually-hidden"
+      >
+        Начать игру
+      </span>
+    </button>
+    <h2
+      className="welcome__rules-title"
+    >
+      Правила игры
+    </h2>
+    <p
+      className="welcome__text"
+    >
+      Правила просты:
+    </p>
+    <ul
+      className="welcome__rules-list"
+    >
+      <li>
+        За 
+        100
+         минут нужно ответить на все вопросы.
+      </li>
+      <li>
+        Можно допустить 
+        Infinity
+         ошибки.
+      </li>
+    </ul>
+    <p
+      className="welcome__text"
+    >
+      Удачи!
+    </p>
+  </section>
+</section>
+`;
+
+exports[`App correctly renders first screen 1`] = `
+<section
+  className="game game--artist"
+>
+  <header
+    className="game__header"
   >
-    Правила просты:
-  </p>
-  <ul
-    className="welcome__rules-list"
+    <a
+      className="game__back"
+      href="#"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <div
+      className="timer__value"
+    >
+      <span
+        className="timer__mins"
+      >
+        05
+      </span>
+      <span
+        className="timer__dots"
+      >
+        :
+      </span>
+      <span
+        className="timer__secs"
+      >
+        00
+      </span>
+    </div>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
+  <section
+    className="welcome"
   >
-    <li>
-      За 
-      5
-       минут нужно ответить на все вопросы.
-    </li>
-    <li>
-      Можно допустить 
-      3
-       ошибки.
-    </li>
-  </ul>
-  <p
-    className="welcome__text"
+    <div
+      className="welcome__logo"
+    >
+      <img
+        alt="Угадай мелодию"
+        height="83"
+        src="img/melody-logo.png"
+        width="186"
+      />
+    </div>
+    <button
+      className="welcome__button"
+      onClick={[Function]}
+    >
+      <span
+        className="visually-hidden"
+      >
+        Начать игру
+      </span>
+    </button>
+    <h2
+      className="welcome__rules-title"
+    >
+      Правила игры
+    </h2>
+    <p
+      className="welcome__text"
+    >
+      Правила просты:
+    </p>
+    <ul
+      className="welcome__rules-list"
+    >
+      <li>
+        За 
+        100
+         минут нужно ответить на все вопросы.
+      </li>
+      <li>
+        Можно допустить 
+        Infinity
+         ошибки.
+      </li>
+    </ul>
+    <p
+      className="welcome__text"
+    >
+      Удачи!
+    </p>
+  </section>
+</section>
+`;
+
+exports[`App correctly renders genre question screen 1`] = `
+<section
+  className="game game--artist"
+>
+  <header
+    className="game__header"
   >
-    Удачи!
-  </p>
+    <a
+      className="game__back"
+      href="#"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <div
+      className="timer__value"
+    >
+      <span
+        className="timer__mins"
+      >
+        05
+      </span>
+      <span
+        className="timer__dots"
+      >
+        :
+      </span>
+      <span
+        className="timer__secs"
+      >
+        00
+      </span>
+    </div>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
+  <section
+    className="welcome"
+  >
+    <div
+      className="welcome__logo"
+    >
+      <img
+        alt="Угадай мелодию"
+        height="83"
+        src="img/melody-logo.png"
+        width="186"
+      />
+    </div>
+    <button
+      className="welcome__button"
+      onClick={[Function]}
+    >
+      <span
+        className="visually-hidden"
+      >
+        Начать игру
+      </span>
+    </button>
+    <h2
+      className="welcome__rules-title"
+    >
+      Правила игры
+    </h2>
+    <p
+      className="welcome__text"
+    >
+      Правила просты:
+    </p>
+    <ul
+      className="welcome__rules-list"
+    >
+      <li>
+        За 
+        100
+         минут нужно ответить на все вопросы.
+      </li>
+      <li>
+        Можно допустить 
+        Infinity
+         ошибки.
+      </li>
+    </ul>
+    <p
+      className="welcome__text"
+    >
+      Удачи!
+    </p>
+  </section>
 </section>
 `;

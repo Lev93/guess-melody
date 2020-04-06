@@ -9,18 +9,19 @@ const mock = {
   },
 };
 
-describe('AudioPlayer is rendered correctly', () => {
-  it('AudioPlayer renders correctly', () => {
-    const { song } = mock;
-    const onPlayButtonClick = jest.fn();
-    const tree = renderer.create(<AudioPlayer
-        isPlaying={false}
-        onPlayButtonClick={onPlayButtonClick}
-        src={song.src}/>, {
-      createNodeMock: () => {
-        return {};
-      },
-    }).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+it('AudioPlayer is rendered correctly', () => {
+  const { song } = mock;
+  const onPlayButtonClick = jest.fn();
+
+  const tree = renderer.create(<AudioPlayer
+    isPlaying={false}
+    onPlayButtonClick={onPlayButtonClick}
+    src={song.src}
+  />, {
+    createNodeMock: () => {
+      return {};
+    },
+  }).toJSON();
+
+  expect(tree).toMatchSnapshot();
 });

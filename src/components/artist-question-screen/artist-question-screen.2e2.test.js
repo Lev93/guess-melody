@@ -1,44 +1,73 @@
-
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
 import ArtistQuestionScreen from './artist-question-screen.jsx';
 
-Enzyme.configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() });
 
 const mock = {
   question: {
     type: 'artist',
     song: {
-      artist: 'Jim Beam',
-      src: 'path.mp3',
+      artist: '',
+      src: '',
     },
     answers: [
       {
-        picture: 'path.jpg',
-        artist: 'John Snow',
+        artist: 'one',
+        picture: 'pic-one',
       },
       {
-        picture: 'path.jpg',
-        artist: 'Jack Daniels',
+        artist: 'two',
+        picture: 'pic-two',
       },
       {
-        picture: 'path.jpg',
-        artist: 'Jim Beam',
+        artist: 'three',
+        picture: 'pic-three',
       },
     ],
   },
 };
 
-it('ArtistQuestionScreen is correctly rendered after relaunch', () => {
-  const clickHandler = jest.fn();
-  const artistQuestionScreen = shallow(<ArtistQuestionScreen
-    onAnser={clickHandler}
-    question={mock.question}
-    />);
-  const form = artistQuestionScreen.find('form');
-  form.simulate('submit', {
-    preventDefault() {},
+
+const mockEvent = {
+  preventDefault() {},
+};
+
+
+it('Click on user answer should pass to the callback data-object from which this answer was created', () => {
+  const { question } = mock;
+  const onAnswer = jest.fn();
+
+  const screen = shallow(<ArtistQuestionScreen
+    onAnswer={onAnswer}
+    question={question}
+  />);
+
+  const answerInputs = screen.find('input');
+  const answerOne = answerInputs.at(0);
+  const answerTwo = answerInputs.at(1);
+  const answerThree = answerInputs.at(2);
+
+  answerOne.simulate('click', mockEvent);
+  answerTwo.simulate('click', mockEvent);
+  answerThree.simulate('click', mockEvent);
+
+  expect(onAnswer).toHaveBeenCalledTimes(3);
+
+  expect(onAnswer).toHaveBeenNthCalledWith(1, {
+    artist: 'one',
+    picture: 'pic-one',
   });
-  expect(form.render()).toMatchSnapshot();
+
+  expect(onAnswer).toHaveBeenNthCalledWith(2, {
+    artist: 'two',
+    picture: 'pic-two',
+  });
+
+  expect(onAnswer).toHaveBeenNthCalledWith(3, {
+    artist: 'three',
+    picture: 'pic-three',
+  });
 });
