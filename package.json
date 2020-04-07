@@ -25,6 +25,7 @@
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "7.9.0",
     "@babel/preset-react": "7.9.4",
+    "axios-mock-adapter": "^1.18.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "25.2.4",
     "babel-loader": "8.1.0",
@@ -46,11 +47,15 @@
     "node": "10"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "recompose": "^0.30.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "why-did-you-update": "^1.0.8"
   }
 }

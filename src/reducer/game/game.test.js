@@ -4,7 +4,7 @@ import {
   isArtistAnswerCorrect,
   isGenreAnswerCorrect,
   reducer,
-} from './reducer';
+} from './game';
 
 describe('Business logic is correct', () => {
   it('Artist answer is checked correctly', () => {
@@ -82,6 +82,7 @@ describe('Business logic is correct', () => {
         },
       ],
     })).toEqual(true);
+
 
     expect(isGenreAnswerCorrect([false, false, false, false], {
       type: 'genre',

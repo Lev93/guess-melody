@@ -1,8 +1,8 @@
-/* eslint-disable arrow-body-style */
 const initialState = {
   step: -1,
   mistakes: 0,
 };
+
 
 const ActionType = {
   INCREMENT_MISTAKES: 'INCREMENT_MISTAKES',
@@ -10,11 +10,14 @@ const ActionType = {
   RESET: 'RESET',
 };
 
+
 const isArtistAnswerCorrect = (userAnswer, question) => userAnswer.artist === question.song.artist;
 
-const isGenreAnswerCorrect = (userAnswer, question) => userAnswer.every((it, i) => it === (
-  question.answers[i].genre === question.genre
+const isGenreAnswerCorrect = (userAnswer, question) =>
+  userAnswer.every((it, i) => it === (
+    question.answers[i].genre === question.genre
 ));
+
 
 const ActionCreator = {
   incrementStep: () => ({
@@ -32,14 +35,14 @@ const ActionCreator = {
       case 'genre':
         answerIsCorrect = isGenreAnswerCorrect(userAnswer, question);
         break;
-      default: console.log('unknown question');
-    }
+  }
 
     return {
       type: ActionType.INCREMENT_MISTAKES,
       payload: answerIsCorrect ? 0 : 1,
     };
   },
+
   resetGame: () => {
     return {
       type: ActionType.RESET,
@@ -50,17 +53,21 @@ const ActionCreator = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT_STEP': {
-      return { ...state, step: state.step + action.payload };
-    }
-    case 'INCREMENT_MISTAKES': {
-      return { ...state, mistakes: state.mistakes + action.payload };
-    }
+    case ActionType.INCREMENT_STEP:
+      return Object.assign({}, state, {
+        step: state.step + action.payload,
+      });
 
-    case 'RESET': return { ...initialState };
-    default:
-      return state;
+    case ActionType.INCREMENT_MISTAKES:
+      return Object.assign({}, state, {
+        mistakes: state.mistakes + action.payload,
+      });
+
+    case ActionType.RESET:
+      return Object.assign({}, initialState);
   }
+
+  return state;
 };
 
 

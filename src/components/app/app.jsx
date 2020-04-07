@@ -3,6 +3,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getStep } from '../../reducer/game/selectors';
+import { getQuestions } from '../../reducer/data/selectors';
 
 const Type = {
   ARTIST: 'game--artist',
@@ -10,7 +12,7 @@ const Type = {
 };
 
 const mapStateToProps = (state) => {
-  const props = { step: state.step };
+  const props = { step: getStep(state), questions: getQuestions(state) };
   return props;
 };
 
