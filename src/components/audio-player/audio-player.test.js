@@ -14,14 +14,12 @@ it('AudioPlayer is rendered correctly', () => {
   const onPlayButtonClick = jest.fn();
 
   const tree = renderer.create(<AudioPlayer
+    isLoading={true}
     isPlaying={false}
     onPlayButtonClick={onPlayButtonClick}
+    renderAudio={jest.fn()}
     src={song.src}
-  />, {
-    createNodeMock: () => {
-      return {};
-    },
-  }).toJSON();
+  />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

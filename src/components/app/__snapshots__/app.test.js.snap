@@ -55,59 +55,6 @@ exports[`App correctly renders artist question screen 1`] = `
       />
     </div>
   </header>
-  <section
-    className="welcome"
-  >
-    <div
-      className="welcome__logo"
-    >
-      <img
-        alt="Угадай мелодию"
-        height="83"
-        src="img/melody-logo.png"
-        width="186"
-      />
-    </div>
-    <button
-      className="welcome__button"
-      onClick={[Function]}
-    >
-      <span
-        className="visually-hidden"
-      >
-        Начать игру
-      </span>
-    </button>
-    <h2
-      className="welcome__rules-title"
-    >
-      Правила игры
-    </h2>
-    <p
-      className="welcome__text"
-    >
-      Правила просты:
-    </p>
-    <ul
-      className="welcome__rules-list"
-    >
-      <li>
-        За 
-        100
-         минут нужно ответить на все вопросы.
-      </li>
-      <li>
-        Можно допустить 
-        Infinity
-         ошибки.
-      </li>
-    </ul>
-    <p
-      className="welcome__text"
-    >
-      Удачи!
-    </p>
-  </section>
 </section>
 `;
 
@@ -166,59 +113,6 @@ exports[`App correctly renders first screen 1`] = `
       />
     </div>
   </header>
-  <section
-    className="welcome"
-  >
-    <div
-      className="welcome__logo"
-    >
-      <img
-        alt="Угадай мелодию"
-        height="83"
-        src="img/melody-logo.png"
-        width="186"
-      />
-    </div>
-    <button
-      className="welcome__button"
-      onClick={[Function]}
-    >
-      <span
-        className="visually-hidden"
-      >
-        Начать игру
-      </span>
-    </button>
-    <h2
-      className="welcome__rules-title"
-    >
-      Правила игры
-    </h2>
-    <p
-      className="welcome__text"
-    >
-      Правила просты:
-    </p>
-    <ul
-      className="welcome__rules-list"
-    >
-      <li>
-        За 
-        100
-         минут нужно ответить на все вопросы.
-      </li>
-      <li>
-        Можно допустить 
-        Infinity
-         ошибки.
-      </li>
-    </ul>
-    <p
-      className="welcome__text"
-    >
-      Удачи!
-    </p>
-  </section>
 </section>
 `;
 
@@ -277,58 +171,5 @@ exports[`App correctly renders genre question screen 1`] = `
       />
     </div>
   </header>
-  <section
-    className="welcome"
-  >
-    <div
-      className="welcome__logo"
-    >
-      <img
-        alt="Угадай мелодию"
-        height="83"
-        src="img/melody-logo.png"
-        width="186"
-      />
-    </div>
-    <button
-      className="welcome__button"
-      onClick={[Function]}
-    >
-      <span
-        className="visually-hidden"
-      >
-        Начать игру
-      </span>
-    </button>
-    <h2
-      className="welcome__rules-title"
-    >
-      Правила игры
-    </h2>
-    <p
-      className="welcome__text"
-    >
-      Правила просты:
-    </p>
-    <ul
-      className="welcome__rules-list"
-    >
-      <li>
-        За 
-        100
-         минут нужно ответить на все вопросы.
-      </li>
-      <li>
-        Можно допустить 
-        Infinity
-         ошибки.
-      </li>
-    </ul>
-    <p
-      className="welcome__text"
-    >
-      Удачи!
-    </p>
-  </section>
 </section>
 `;

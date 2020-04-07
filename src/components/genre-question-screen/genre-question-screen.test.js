@@ -31,8 +31,13 @@ const mock = {
 it('GenreQuestionScreen is rendered correctly', () => {
   const { question } = mock;
   const tree = renderer.create(<GenreQuestionScreen
+    activePlayer={-1}
     onAnswer={jest.fn()}
+    onChange={jest.fn()}
+    onPlayButtonClick={jest.fn()}
+    renderAnswer={jest.fn()}
     question={question}
+    userAnswer={[false, false, false, false]}
   />, {
     createNodeMock: () => {
       return {};

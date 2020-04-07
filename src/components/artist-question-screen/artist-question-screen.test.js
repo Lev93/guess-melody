@@ -32,6 +32,7 @@ it('ArtistQuestionScreen is rendered correctly', () => {
   const tree = renderer.create(<ArtistQuestionScreen
     onAnswer={jest.fn()}
     question={question}
+    renderQuestion={jest.fn()}
   />, {
     createNodeMock: () => {
       return {};

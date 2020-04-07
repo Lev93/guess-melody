@@ -6,18 +6,20 @@ import React from 'react';
 import App from './components/app/app.jsx';
 import questions from './mocks/questions';
 import { reducer } from './reducer';
+import withScreenSwitchfunc from './hocs/with-screen-switch/with-screen-switch';
 
 const init = (gameQuestions) => {
   const settings = {
     gameTime: 5,
     errorCount: 3,
   };
+  const AppWrapped = withScreenSwitchfunc(App);
   const store = createStore(
     reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
   ReactDOM.render(<Provider store={store}>
-    <App
+    <AppWrapped
       maxMistakes={settings.errorCount}
       gameTime={settings.gameTime}
       questions={gameQuestions}

@@ -1,49 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AudioPlayer from '../audio-player/audio-player.jsx';
 
 
 class GenreQuestionScreen extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    const { question } = this.props;
-    const { answers } = question;
-
-    this.state = {
-      activePlayer: -1,
-      userAnswer: new Array(answers.length).fill(false),
-    };
-  }
-
   render() {
-    const { step, question, onAnswer } = this.props;
+    const {
+      question,
+      onAnswer,
+      onChange,
+      renderAnswer,
+      userAnswer,
+    } = this.props;
     const { answers, genre } = question;
 
     const handleSubmitForm = (e) => {
       e.preventDefault();
-      onAnswer(this.state.userAnswer);
+      onAnswer();
     };
 
     return <section className="game__screen">
 <h2 className="game__title">Выберите треки с жанром {genre}</h2>
     <form className="game__tracks" onSubmit = { handleSubmitForm }>
-      {answers.map((it, i) => <div key = {`${step}-answer-${i}`} className="track">
-          <AudioPlayer
-            src={it.src}
-            isPlaying = {i === this.state.activePlayer}
-            onPlayButtonClick={() => this.setState({
-              activePlayer: this.state.activePlayer === i ? -1 : i,
-            })}
-          />
+      {answers.map((it, i) => <div className="track" key={`answer-${i}`}>
+        {renderAnswer(it, i)}
           <div className="game__answer">
             <input className="game__input visually-hidden"
-              type="checkbox" name="answer" value={`answer-${i}`} id={`answer-${i}`}
-              onChange={() => {
-                const userAnswer = [...this.state.userAnswer];
-                userAnswer[i] = !userAnswer[i];
-                this.setState({ userAnswer });
-              }}
+              type="checkbox" name="answer" value={`answer-${i}`} id={`answer-${i}`} checked={userAnswer[i]}
+              onChange={() => onChange(i)}
               />
             <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
           </div>
@@ -57,8 +40,9 @@ class GenreQuestionScreen extends React.PureComponent {
 
 
 GenreQuestionScreen.propTypes = {
-  step: PropTypes.number,
   onAnswer: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  renderAnswer: PropTypes.func.isRequired,
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
       src: PropTypes.string.isRequired,
@@ -67,6 +51,7 @@ GenreQuestionScreen.propTypes = {
     genre: PropTypes.oneOf(['rock', 'jazz', 'blues', 'pop', 'rap']).isRequired,
     type: PropTypes.oneOf(['genre', 'artist']).isRequired,
   }).isRequired,
+  userAnswer: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default GenreQuestionScreen;

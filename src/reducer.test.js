@@ -1,5 +1,6 @@
 import {
   ActionCreator,
+  ActionType,
   isArtistAnswerCorrect,
   isGenreAnswerCorrect,
   reducer,
@@ -110,7 +111,7 @@ describe('Business logic is correct', () => {
 describe('Action creators work correctly', () => {
   it('Action creator for incrementing step returns correct action', () => {
     expect(ActionCreator.incrementStep()).toEqual({
-      type: 'INCREMENT_STEP',
+      type: ActionType.INCREMENT_STEP,
       payload: 1,
     });
   });
@@ -139,8 +140,8 @@ describe('Action creators work correctly', () => {
           picture: '',
         },
       ],
-    }, 0, Infinity)).toEqual({
-      type: 'INCREMENT_MISTAKES',
+    })).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 0,
     });
   });
@@ -169,8 +170,8 @@ describe('Action creators work correctly', () => {
           picture: '',
         },
       ],
-    }, 0, Infinity)).toEqual({
-      type: 'INCREMENT_MISTAKES',
+    })).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 1,
     });
   });
@@ -197,8 +198,8 @@ describe('Action creators work correctly', () => {
           src: '',
         },
       ],
-    }, 0, Infinity)).toEqual({
-      type: 'INCREMENT_MISTAKES',
+    })).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 0,
     });
   });
@@ -225,63 +226,9 @@ describe('Action creators work correctly', () => {
           src: '',
         },
       ],
-    }, 0, Infinity)).toEqual({
-      type: 'INCREMENT_MISTAKES',
+    })).toEqual({
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 1,
-    });
-  });
-
-  it('Action creator resets state if user is answered incorrectly and there are no mistakes left', () => {
-    expect(ActionCreator.incrementMistake({
-      artist: 'incorrect',
-      picture: '',
-    }, {
-      type: 'artist',
-      song: {
-        artist: 'correct',
-        src: '',
-      },
-      answers: [
-        {
-          artist: 'correct',
-          picture: '',
-        },
-        {
-          artist: 'incorrect',
-          picture: '',
-        },
-        {
-          artist: 'incorrect-2',
-          picture: '',
-        },
-      ],
-    }, Infinity, 0)).toEqual({
-      type: 'RESET',
-    });
-
-    expect(ActionCreator.incrementMistake([true, true, true, true], {
-      type: 'genre',
-      genre: 'jazz',
-      answers: [
-        {
-          genre: 'blues',
-          src: '',
-        },
-        {
-          genre: 'blues',
-          src: '',
-        },
-        {
-          genre: 'blues',
-          src: '',
-        },
-        {
-          genre: 'blues',
-          src: '',
-        },
-      ],
-    }, Infinity, 0)).toEqual({
-      type: 'RESET',
     });
   });
 });
@@ -299,7 +246,7 @@ describe('Reducer works correctly', () => {
       step: -1,
       mistakes: 0,
     }, {
-      type: 'INCREMENT_STEP',
+      type: ActionType.INCREMENT_STEP,
       payload: 1,
     })).toEqual({
       step: 0,
@@ -310,7 +257,7 @@ describe('Reducer works correctly', () => {
       step: -1,
       mistakes: 0,
     }, {
-      type: 'INCREMENT_STEP',
+      type: ActionType.INCREMENT_STEP,
       payload: 0,
     })).toEqual({
       step: -1,
@@ -323,7 +270,7 @@ describe('Reducer works correctly', () => {
       step: -1,
       mistakes: 0,
     }, {
-      type: 'INCREMENT_MISTAKES',
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 1,
     })).toEqual({
       step: -1,
@@ -334,7 +281,7 @@ describe('Reducer works correctly', () => {
       step: -1,
       mistakes: 0,
     }, {
-      type: 'INCREMENT_MISTAKES',
+      type: ActionType.INCREMENT_MISTAKES,
       payload: 0,
     })).toEqual({
       step: -1,
@@ -347,7 +294,7 @@ describe('Reducer works correctly', () => {
       step: 1000000,
       mistakes: 12309,
     }, {
-      type: 'RESET',
+      type: ActionType.RESET,
     })).toEqual({
       step: -1,
       mistakes: 0,
