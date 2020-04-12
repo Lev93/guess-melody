@@ -10,7 +10,7 @@ import reducers from './reducers';
 
 const init = (gameQuestions) => {
   const settings = {
-    gameTime: 1,
+    gameTime: 5,
     errorCount: 3,
   };
   const store = createStore(
