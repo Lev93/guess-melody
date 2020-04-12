@@ -1,40 +1,32 @@
 /* eslint-disable no-underscore-dangle */
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import thunk from 'redux-thunk';
-import { compose } from 'recompose';
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import App from './components/app/app.jsx';
-import createAPI from './api';
-import reducer from './reducer';
-import { Operation } from './reducer/data/data';
-import withScreenSwitchfunc from './hocs/with-screen-switch/with-screen-switch';
+import questions from './mocks/questions';
+import reducers from './reducers';
 
-
-const init = () => {
+const init = (gameQuestions) => {
   const settings = {
-    gameTime: 5,
+    gameTime: 1,
     errorCount: 3,
   };
-  const api = createAPI((...args) => store.dispatch(...args));
-  const AppWrapped = withScreenSwitchfunc(App);
   const store = createStore(
-    reducer,
-    compose(
-      applyMiddleware(thunk.withExtraArgument(api)),
-      window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
-    ),
+    reducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
-  store.dispatch(Operation.loadQuestions());
-
   ReactDOM.render(<Provider store={store}>
-    <AppWrapped
+    <HashRouter>
+    <App
       maxMistakes={settings.errorCount}
       gameTime={settings.gameTime}
+      questions={gameQuestions}
     />
+    </HashRouter>
     </Provider>,
   document.querySelector('#root'));
 };
 
-init();
+init(questions);

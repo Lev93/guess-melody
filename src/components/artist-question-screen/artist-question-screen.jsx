@@ -1,27 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AudioPlayer from '../audio-player/audio-player.jsx';
+
 
 class ArtistQuestionScreen extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPlaying: false,
+    };
+  }
+
   render() {
-    const {
-      step,
-      question,
-      onAnswer,
-      renderQuestion,
-    } = this.props;
+    const { step, question, onAnswer } = this.props;
+    const { isPlaying } = this.state;
     const { answers, song } = question;
+
+    const handleClick = (userAnswer) => (e) => {
+      e.preventDefault();
+      const wrongAnswer = (userAnswer1, question1) => {
+        const answerIsCorrect = userAnswer1.artist === question1.song.artist;
+        return answerIsCorrect ? 0 : 1;
+      };
+      onAnswer(wrongAnswer(userAnswer, question));
+    };
 
     return <section className="game__screen">
     <h2 className="game__title">Кто исполняет эту песню?</h2>
     <div className="game__track">
       <div className="track">
-      {renderQuestion(song, 0)}
+        <AudioPlayer
+          isPlaying={isPlaying}
+          onPlayButtonClick={() => this.setState({ isPlaying: !isPlaying })}
+          src={song.src}
+        />
       </div>
     </div>
 
     <form className="game__artist">
     {answers.map((it, i) => <div key = {`${step}-answer-${i}`} className="artist">
-        <input className="artist__input visually-hidden" type="radio" name="answer" value={`answer-${i}`} id={`answer-${i}`} onClick={() => onAnswer(it)}/>
+        <input className="artist__input visually-hidden" type="radio" name="answer" value={`answer-${i}`} id={`answer-${i}`} onClick={ handleClick(it) }/>
         <label className="artist__name" htmlFor={`answer-${i}`}>
           <img className="artist__picture" src={it.picture} alt={it.artist} />
           {it.artist}
@@ -31,7 +50,6 @@ class ArtistQuestionScreen extends React.PureComponent {
   </section>;
   }
 }
-
 ArtistQuestionScreen.propTypes = {
   step: PropTypes.number,
   onAnswer: PropTypes.func.isRequired,
@@ -46,7 +64,5 @@ ArtistQuestionScreen.propTypes = {
     }).isRequired,
     type: PropTypes.oneOf(['genre', 'artist']).isRequired,
   }).isRequired,
-  renderQuestion: PropTypes.func.isRequired,
 };
-
 export default ArtistQuestionScreen;
