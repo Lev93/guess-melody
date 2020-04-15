@@ -22,6 +22,8 @@ const mapStateToProps = (state) => {
     mistakes: state.mistakes,
     time: state.time,
     modal: state.modal,
+    isAuth: state.isAuth,
+    user: state.user,
   };
   return props;
 };
@@ -159,6 +161,8 @@ class App extends React.Component {
       closeModal();
     }}
     closeModal = { closeModal }
+    title = { 'Подтверждение' }
+    text = { 'Вы уверены что хотите начать игру заново?' }
  />;
   }
 
@@ -204,6 +208,8 @@ App.propTypes = {
   modal: PropTypes.bool.isRequired,
   openModal: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool,
+  user: PropTypes.number,
 };
 
 export default connect(mapStateToProps, actionCreators)(App);

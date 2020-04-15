@@ -24,3 +24,12 @@ export const openModal = () => ({
 export const closeModal = () => ({
   type: 'CLOSE_MODAL',
 });
+
+export const isAuthTrue = () => ({
+  type: 'ISAUTH',
+});
+
+export const authUser = (user) => ({
+  type: 'ADD_USER',
+  payload: user,
+});

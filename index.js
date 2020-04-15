@@ -1,14 +1,22 @@
 const express = require('express');
 const path = require('path');
+const db = require('./db/db');
+
+const homeRoutes = require('./routes/home');
+const authRoutes = require('./routes/auth');
+const resultsRoutes = require('./routes/results');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
+db.authenticate().then(() => console.log('Database connected...'))
+  .catch((err) => console.log(err));
 
-app.get('/', async (req, res) => {
-  res.status(200);
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/', homeRoutes);
+app.use('/auth', authRoutes);
+app.use('/results', resultsRoutes);
 
 const PORT = process.env.PORT || 3000;
 

@@ -44,9 +44,31 @@ const modal = (state = false, action) => {
   }
 };
 
+const isAuth = (state = false, action) => {
+  switch (action.type) {
+    case 'ISAUTH': {
+      return true;
+    }
+    default:
+      return state;
+  }
+};
+
+const user = (state = 0, action) => {
+  switch (action.type) {
+    case 'ADD_USER': {
+      return action.payload;
+    }
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   step,
   mistakes,
   time,
   modal,
+  isAuth,
+  user,
 });
