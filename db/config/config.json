@@ -2,10 +2,10 @@
   "development": {
     "username": "postgres",
     "password": "13081993",
-    "database": "guessmelody",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "database": "urlshortener_development"
   },
   "test": {
     "username": "postgres",
@@ -18,9 +18,10 @@
   "production": {
     "username": "postgres",
     "password": "13081993",
-    "database": "guessmelody",
+    "database": "urlshortener_production",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "use_env_variable": "DATABASE_URL"
   }
 }
