@@ -8,12 +8,8 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "postgres",
-    "password": "13081993",
-    "database": "guessmelody",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "storage": ":memory:",
+    "dialect": "sqlite"
   },
   "production": {
     "username": "postgres",
