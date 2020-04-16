@@ -52,8 +52,10 @@
     "node": "10"
   },
   "dependencies": {
+    "@babel/register": "^7.9.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "is_js": "^0.9.0",
@@ -70,6 +72,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1",
     "why-did-you-update": "^1.0.8"
   }
 }

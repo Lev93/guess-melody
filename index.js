@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const db = require('./db/db');
+const db = require('./db/models/index');
 
 const homeRoutes = require('./routes/home');
 const authRoutes = require('./routes/auth');
@@ -8,7 +8,7 @@ const resultsRoutes = require('./routes/results');
 
 const app = express();
 
-db.authenticate().then(() => console.log('Database connected...'))
+db.sequelize.authenticate().then(() => console.log('Database connected...'))
   .catch((err) => console.log(err));
 
 app.use(express.static(path.join(__dirname, 'public')));
